@@ -1,0 +1,24 @@
+{
+  "name": "basic",
+  "version": "1.0.0",
+  "homepage": "https://github.com/akhuang/AngularJS",
+  "authors": [
+    "phoenix <fy24h.huang@gmail.com>"
+  ],
+  "description": "angularjs basic",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angularjs": "~1.4.4",
+    "jquery": "~2.1.4",
+    "jqueryui": "~1.11.4",
+    "underscore": "~1.8.3",
+    "angular-bootstrap": "~0.13.3"
+  }
+}
