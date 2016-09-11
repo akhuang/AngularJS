@@ -1,0 +1,15 @@
+{
+  "name": "AdminTemplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Phoenix",
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-route": "^1.5.7",
+    "express": "^4.12.4"
+  }
+}
