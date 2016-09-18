@@ -14,6 +14,8 @@ function clean() {
 }
 
 function other() {
+  //isFile判断是否为一个文件，还是一个目录
+  //file为filesystem
   const fileFilter = filter(file => file.stat.isFile());
 
   return gulp.src([
