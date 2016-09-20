@@ -2,20 +2,23 @@ const webpack = require('webpack');
 const conf = require('./gulp.conf');
 const path = require('path');
 
+//generate html file
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+//将CSS文件单独抽取
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const pkg = require('../package.json');
+//增加CSS前缀
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
   module: {
-    preLoaders: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'eslint'
-      }
-    ],
+    // preLoaders: [
+    //   {
+    //     test: /\.js$/,
+    //     exclude: /node_modules/,
+    //     loader: 'eslint'
+    //   }
+    // ],
 
     loaders: [
       {
@@ -35,7 +38,9 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loaders: [
-          'ng-annotate'
+          'ng-annotate' //自动补全注入参数 http://www.jianshu.com/p/564c0d068d2c
+          //.controller('testCtrl',  function ($scope) {});
+          //.controller('testCtrl',  ["$scope", function ($scope) {}]);
         ]
       },
       {
@@ -53,9 +58,10 @@ module.exports = {
       template: conf.path.src('index.html'),
       inject: true
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {unused: true, dead_code: true} // eslint-disable-line camelcase
-    }),
+    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js' }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress: { unused: true, dead_code: true } // eslint-disable-line camelcase
+    // }),
     new ExtractTextPlugin('index-[contenthash].css')
   ],
   postcss: () => [autoprefixer],
